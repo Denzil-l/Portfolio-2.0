@@ -1,5 +1,5 @@
 let container = document.querySelector(".fly-blocks")
-let number = 30;
+let number = 20;
 let n = 1
     const elementsToDelete = document.getElementsByClassName("block");
     while (elementsToDelete.length > 0) {
@@ -26,18 +26,18 @@ let generate = (block,blocks) =>{
     let randomNumber;
 
         if(n % 2 == 0){
-                randomNumber = -10 -Math.floor(Math.random() * 30);
+                randomNumber = -Math.floor(Math.random() * 100);
         }else{
-            randomNumber = 105 + Math.floor(Math.random() * 20);
+            randomNumber = Math.floor(Math.random() * 80);
         }
         n++
         let random = Math.floor(Math.random() * 150) + 'px'
 
-        blocks.style.top = Math.floor(Math.random() * 80) + "%"
+        blocks.style.top = Math.floor(Math.random() * 200) + "%"
         blocks.style.left = randomNumber + "%"
         blocks.style.width = random
         blocks.style.height  = random
-        block.style.top = Math.floor(Math.random() * 80) + "%"
+        block.style.top = Math.floor(Math.random() * 200) + "%"
         block.style.left = randomNumber + "%"
         block.style.width = random
         block.style.height  = random

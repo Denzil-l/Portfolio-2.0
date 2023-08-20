@@ -1,12 +1,15 @@
-.big-block{
+.big-block {
     position: absolute;
     width: 100px;
     height: 100px;
     transition: 0.3s;
 }
-.wrapper{
-    cursor: url("../images/space-station.png"),;	
+
+.wrapper {
+    cursor: url("../images/space-station.png"), ;
     overflow: hidden;
+    overflow-y: auto;
+    height: 100%;
     min-width: 100%;
     min-height: 100%;
     display: flex;
@@ -14,8 +17,9 @@
     align-items: center;
     font-family: 'Futura New';
     color: white;
-    background: linear-gradient(145deg, rgba(34,34,34,1) 0%, rgba(46,34,41,1) 35%, rgba(251,29,169,1) 100%);
+    background: linear-gradient(145deg, rgba(34, 34, 34, 1) 0%, rgba(46, 34, 41, 1) 35%, rgba(251, 29, 169, 1) 100%);
 }
+
 .circle {
     position: absolute;
     width: 30px;
@@ -23,6 +27,315 @@
     border-radius: 50%;
     border: 2px solid #ccc;
     pointer-events: none;
-  }
+    z-index: 20;
+}
 
- 
+.container {
+    width: 100%;
+
+    // backdrop-filter: blur(2px);
+    // background: rgba($color: #000000, $alpha: 0.2);
+
+    height: 700px;
+    min-height: 100%;
+    z-index: 12;
+    padding: 20px;
+}
+
+.first,
+.second {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.second {
+    align-items: center;
+    margin-top: 100px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    a {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.three {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text {
+    padding: 15px;
+    border-radius: 5px;
+    border: 2px solid black;
+    background: rgba($color: #000000, $alpha: 0.5);
+
+}
+
+.title {
+    font-size: 30px;
+    letter-spacing: 2px;
+
+
+}
+
+.about {
+    display: inline-block;
+    margin-top: 35px;
+    opacity: 0;
+}
+
+#message1 {
+    margin-left: 100px;
+    float: left;
+}
+
+#message2 {
+    font-size: 24px;
+    margin-right: 100px;
+    max-width: 50%;
+    float: right;
+}
+
+#message3 {
+    font-size: 24px;
+    margin-right: 100px;
+    max-width: 50%;
+    float: left;
+}
+
+#message4 {
+    font-size: 28px;
+    margin-right: 100px;
+    max-width: 50%;
+    float: right;
+}
+
+
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.project {
+    cursor: pointer;
+    margin: 10px auto;
+    width: 350px;
+    height: 270px;
+    border-radius: 3px;
+    border: 2px double black;
+    background: url('https://radar-design.de/wp-content/uploads/2017/03/professionelle-webseite.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 20px;
+    transition: .3s;
+    position: relative;
+    /* Добавьте это свойство для позиционирования псевдоэлемента */
+
+    &__title {
+        transition: .3s;
+        opacity: 0;
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+        background-color: rgba($color: #000000, $alpha: 0.8);
+    }
+}
+
+project:hover .project__title::before {
+    content: attr(data-title);
+    /* Отображение текста заголовка */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    transition: opacity 0.3s ease;
+    /* Плавное появление/исчезание */
+    opacity: 1;
+    /* Начальное состояние видимости */
+}
+
+.project:hover .project__title {
+    opacity: 1;
+    /* Скрытие оригинального заголовка при наведении */
+}
+
+.project:hover {
+    box-shadow: 0px 0px 11px 1px rgba(11, 15, 243, 0.779);
+
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.59);
+    /* Ширина вертикального скроллбара */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #222;
+    /* Цвет ползунка скроллбара */
+    border-radius: 5px;
+    /* Скругление углов ползунка */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #e40081b1;
+    /* Цвет трека скроллбара */
+}
+
+.linkidin {
+    transition: .3s;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    background: url('../images/linkedin.svg');
+    background-size: contain;
+
+    cursor: pointer;
+    background-repeat: no-repeat;
+}
+
+.github {
+    transition: .3s;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    background: url('../images/github.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.mail {
+    transition: .3s;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    background: url('../images/mail.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.linkidin:hover {
+    background-color: rgba(13, 102, 255, 0.525);
+}
+
+.github:hover {
+    background-color: rgba(8, 162, 190, 0.525);
+}
+
+.mail:hover {
+    background-color: rgba(56, 170, 41, 0.415);
+}
+
+
+
+
+
+.block-top {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.block-middle {
+    font-size: 40px;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+}
+
+.block-bottom {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#project1 {
+    background: url('../images/ReactLogo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#project3 {
+    background: url('../images/layout-example.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+#project2 {
+
+    background: url('../images/logoGame.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+#project4 {
+
+    background: url('../images/mobileLayoutLogo.png');
+    background-size: cover;
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+}
+
+#project5 {
+    background: url('../images/logoparalaks.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+#project6 {
+
+    background: url('../images/logo12.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+#project7 {
+    background: url('../images/logosolar.webp');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+#project8 {
+
+    background: url('../images/logopacman.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
